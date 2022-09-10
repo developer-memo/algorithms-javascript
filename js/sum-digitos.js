@@ -1,24 +1,14 @@
 
 let addDigits = function(num) {
-  let arrInt = 0;
-  let arrTemp = JSON.stringify(num).split('');
-  arrTemp.forEach( x => {
-    arrInt += +x;
-  });
-  do {
-    arrInt = JSON.stringify(arrInt).split('');
-    let numTmp = 0;
-    arrInt.forEach( y => {
-      numTmp += +y;
-    });
-    
-    arrInt = JSON.stringify(numTmp).split('');
-
- } while(arrInt.length > 1);
-
-return JSON.parse(arrInt)
+  if(num < 10){
+    return num;
+  } else {
+    const arrayNumbers = num.toString().split('');
+    let iterator = 0;
+    const newNumber = arrayNumbers.reduce((a,b) => Number(a) + Number(b), iterator );
+    return addDigits(newNumber);
+  }
     
 };
 
-
-console.log(addDigits(2343));
+console.log(addDigits(193));

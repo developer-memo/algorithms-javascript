@@ -1,22 +1,16 @@
 let moveZeroes = function(nums) {
-  let countOfZeros = 0; 
-  const newArray = []; 
-    
-  for (const item of nums) { 
-    if (item === 0) {
-      countOfZeros++;
-    }  
-    else {
-      newArray.push(item); 
-    }
-  };
-
-  for (let i = 0; i < countOfZeros; i++) { 
-    newArray.push(0); 
-  } 
   
-  return newArray; 
-
+  let countOfZeros = 0;
+  for(let i=0; i< nums.length;) {
+    if(nums[i] === 0) {
+        nums.splice(i,1);
+        countOfZeros++;
+    } else {
+        i++;
+    }
+  }
+  newArrayNumber = nums.splice(nums.length, 0, ...new Array(countOfZeros).fill(0));
+  return newArrayNumber;
 };
 
 
